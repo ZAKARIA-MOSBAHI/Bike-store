@@ -3,12 +3,12 @@ import {
   scale,
   ScaledSheet,
   verticalScale,
-} from 'react-native-size-matters';
+} from 'react-native-size-matters/extend';
 import {colors} from '../../../../styles/colors';
 
 export const styles = ScaledSheet.create({
   card: {
-    width: scale(155),
+    width: scale(165),
   },
   background: {
     height: verticalScale(241),

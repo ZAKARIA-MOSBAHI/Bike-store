@@ -1,18 +1,20 @@
 import React from 'react';
-import {StyleSheet, ScrollView} from 'react-native';
 import HomeScreen from './models/Home/HomeScreen';
+import ProductScreen from './models/Product/ProductScreen';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStaticNavigation} from '@react-navigation/native';
 
-export default function App() {
-  return (
-    <>
-      <ScrollView style={styles.container}>
-        <HomeScreen />
-      </ScrollView>
-    </>
-  );
-}
-const styles = StyleSheet.create({
-  container: {
-    fontFamily: 'Poppins-Regular',
+const RootStack = createNativeStackNavigator({
+  initialRouteName: 'Home',
+  screens: {
+    Home: HomeScreen,
+    Product: ProductScreen,
+  },
+  screenOptions: {
+    headerShown: false,
   },
 });
+const Navigation = createStaticNavigation(RootStack);
+export default function App() {
+  return <Navigation />;
+}

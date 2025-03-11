@@ -3,24 +3,22 @@ import {ImageBackground, View, Text, Image, Pressable} from 'react-native';
 import {styles} from './CardStyle';
 import HeartIcon from '../../../../assets/icons/HeartIcon';
 import {typography} from '../../../../styles/typography';
+import {useNavigation} from '@react-navigation/native';
 
 const bg = require('../../../../assets/images/card.png');
-export default function Card({styling, variant = 'first', product}) {
+export default function Card({styling, product}) {
   const [isFavorite, setIsFavorite] = useState(false);
+  const navigation = useNavigation();
   return (
-    <Pressable style={({pressed}) => [styles.card, pressed && styles.pressed]}>
+    <Pressable
+      style={styles.card}
+      onPress={() => {
+        navigation.navigate('Product', {productId: product.id});
+      }}>
       <ImageBackground
         source={bg}
         resizeMode="stretch"
-        style={[
-          styles.background,
-          styling,
-          variant === 'first'
-            ? styles.FirstCard
-            : variant === 'second'
-            ? styles.SecondCard
-            : null,
-        ]}>
+        style={[styles.background, styling]}>
         <View style={styles.productImageContainer}>
           <Image source={product.img} style={styles.productImage} />
           <Pressable

@@ -1,20 +1,26 @@
-import {moderateScale, scale, ScaledSheet} from 'react-native-size-matters';
+import {ScaledSheet} from 'react-native-size-matters/extend';
+import {colors} from '../../styles/colors';
 
 export const styles = ScaledSheet.create({
   header: {
-    width: scale(350),
-    paddingBlock: moderateScale(16),
+    height: '70@s',
+    zIndex: 2,
+    backgroundColor: colors.background,
     flexDirection: 'row',
     justifyContent: 'center',
-    marginInline: 'auto',
+    alignSelf: 'center',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
   },
   child: {
-    paddingInline: moderateScale(12),
-    width: scale(350),
+    paddingInline: '12@s',
+    width: '390@s',
     flexDirection: 'row',
     alignItems: 'center',
+    alignSelf: 'center',
     justifyContent: 'space-between',
-    alignSelf: 'center', // Centers the child container horizontally
   },
   title: {
     color: 'white',

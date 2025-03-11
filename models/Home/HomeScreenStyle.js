@@ -1,23 +1,20 @@
-import {ScaledSheet} from 'react-native-size-matters';
+import {scale, ScaledSheet} from 'react-native-size-matters';
 
 export const styles = ScaledSheet.create({
   container: {
-    zIndex: 0,
-    height: '100%',
-    width: '100%',
-    position: 'relative',
+    flex: 1,
   },
   backgroundImage: {
     height: '100%',
     width: '100%',
-    position: 'absolute', // Fix the background image
+    position: 'absolute',
     top: 0,
     left: 0,
-
-    zIndex: 0, // Ensure the background stays behind the content
+    zIndex: 0,
   },
-  scrollViewContent: {
-    zIndex: 11, // Ensure the content is on top of the background
+  viewstyle: {
+    marginTop: scale(70),
+    zIndex: 1,
     flexGrow: 1,
   },
 });
